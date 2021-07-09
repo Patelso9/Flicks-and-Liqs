@@ -7,8 +7,8 @@ const Movie = () => {
   const [search, setSearchMovies] = usestate('')
 
   useEffect(() => {
-    axios.get('')
-    .them(res => {
+    axios.get('https://www.omdbapi.com/?t=', {  }, { movieKey })
+    .then(res => {
       setMovies(res.data);
     }).catch(err=> console.log(err, 'error in setMovies useEffect'))
   })
