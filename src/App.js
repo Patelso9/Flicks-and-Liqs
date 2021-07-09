@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+// import axios from 'axios';
 import './App.css';
+// import Movie from './components/Movie/Movie';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flicksnliqs-app">
+      <h1>Flicks N Liqs startup page using react!</h1>
+      <div className="movie-app">
+        <div className="movie-search"></div>
+        <div className="movie-random"></div>
+        {/* <div className="movie-card">{Movie}</div> */}
+      </div>
+      <div className="cocktail-app">
+        <div className="cocktail-search"></div>
+        <div className="cocktail-random"></div>
+        <div className="cocktail-card"></div>
+      </div>
     </div>
   );
 }
