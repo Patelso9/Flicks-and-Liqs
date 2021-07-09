@@ -1,34 +1,34 @@
-// import React from 'react'
-// import './Movie.css'
+import React from 'react'
+import './Movie.css'
 
-// const Movie = () => {
+const Movie = () => {
 
-//   const [movies, setMovies] = useState([])
-//   const [search, setSearchMovies] = usestate('')
+  const [movies, setMovies] = useState([])
+  const [search, setSearchMovies] = usestate('')
 
-//   useEffect(() => {
-//     axios.get('')
-//     .them(res => {
-//       setMovies(res.data);
-//     }).catch(err=> console.log(err, 'error in setMovies useEffect'))
-//   })
+  useEffect(() => {
+    axios.get('')
+    .them(res => {
+      setMovies(res.data);
+    }).catch(err=> console.log(err, 'error in setMovies useEffect'))
+  })
 
-//   const handleChange = e => {
-//     setSearch(e.target.value)
-//   }
+  const handleChange = e => {
+    setSearch(e.target.value)
+  }
 
-//   const movieSearched = movies.filter(movie =>
-//     movie.name.includes(search))
-//     // check on api key and search criteria
+  const movieSearched = movies.filter(movie =>
+    movie.name.includes(search))
+    // check on api key and search criteria
 
-//     return (
-//         <div>
+    return (
+        <div>
             
-//         </div>
-//     )
-// }
+        </div>
+    )
+}
 
-// export default Movie;
+export default Movie;
 
 
 
