@@ -1,3 +1,21 @@
+:root{
+ --Bakground-color: maroon;
+ --nav-text: white;
+}
+
+a{
+  color: var(--nav-text);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+/* pre-downloaded style */
+
 .App {
   text-align: center;
 }
