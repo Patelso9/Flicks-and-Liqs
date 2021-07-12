@@ -4,13 +4,13 @@ import './Nav.css';
 
 const Nav = () => {
     return (
-        <div>
-            <NavLink to="/">About Me</NavLink>
+        <div className='nav-bar'>
+            <NavLink to="/">Landing Page</NavLink>
+            <NavLink to="/customize">Customize</NavLink>
+            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/profile">Profile</NavLink>
             {/* <NavLink to="/login">Login</NavLink>
             <NavLink to="/signup">Sign Up</NavLink>
-            <NavLink to="/customize">Customize</NavLink>
-            <NavLink to="/customize">Home</NavLink>
-            <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/guest">Guest home</NavLink> */}
         </div>
     )
