@@ -1,24 +1,32 @@
-import React, {useState, useEffect} from 'react';
 // import axios from 'axios';
-import './App.css';
 // import Movie from './components/Movie/Movie';
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter, Route, Switch  } from 'react-router-dom';
+import './App.css';
+
+import Landing from './pages/Landing/Landing';
+import Nav from './components/Nav/Nav';
+import Customize from './pages/Customize/Customize';
+import Home from './pages/Home/Home';
+import Profile from './pages/Profile/Profile';
 
 function App() {
 
   return (
-    <div className="flicksnliqs-app">
-      <h1>Flicks N Liqs startup page using react!</h1>
-      <div className="movie-app">
-        <div className="movie-search"></div>
-        <div className="movie-random"></div>
-        {/* <div className="movie-card">{Movie}</div> */}
+    <BrowserRouter>
+      <div>
+        <Nav />
+        <Switch>
+          <Route path="/" component={Landing} exact/>
+          <Route path="/customize" component={Customize} />
+          <Route path="/home" component={Home} />
+          <Route path="/profile" component={Profile} />
+          {/* <Route path="/guest" component={} />
+          <Route path="/login" component={} />
+          <Route path="/signup" component={} /> */}
+        </Switch>
       </div>
-      <div className="cocktail-app">
-        <div className="cocktail-search"></div>
-        <div className="cocktail-random"></div>
-        <div className="cocktail-card"></div>
-      </div>
-    </div>
+      </BrowserRouter>
   );
 }
 
