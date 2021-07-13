@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+}
+
+.stress-options{
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.stress-yes{
+    margin: 40px
+}
+
+p.stress-options{
+    margin: 40px;
+
+}
