@@ -1,5 +1,6 @@
 import React from 'react'
-import Nav from '../../components/Nav/Nav'
+import Cocktail from '../../components/Cocktail/Cocktail'
+// import Nav from '../../components/Nav/Nav'
 
 const Home = () => {
     return (
@@ -31,6 +32,7 @@ const Home = () => {
                 <div className ="drink-return">
                     Drink randomizer/search result
                 </div>
+                <Cocktail />
             </div>
         </div>
         
