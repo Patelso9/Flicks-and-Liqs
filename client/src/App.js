@@ -1,6 +1,6 @@
 // import axios from 'axios';
 // import Movie from './components/Movie/Movie';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch  } from 'react-router-dom';
 import './App.css';
 
