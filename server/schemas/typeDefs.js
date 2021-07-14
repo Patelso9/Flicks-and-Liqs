@@ -13,12 +13,14 @@ type User {
 
 type Movie {
     _id: ID
-    name: String
+    movieText: String
+    movieAuthor: String
     
 }
 type Cocktail {
     _id: ID
-    name: String
+    drinkText: String
+    drinkAuthor: String
     
 }
 
