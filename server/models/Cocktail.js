@@ -1,26 +1,11 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const CocktailSchema = new Schema({
-
+const { Schema, model } = require('mongoose');
+const cocktailSchema = new Schema({
+    name: {
+        type: String,
+    },
+    id: {
+        type: Int,
+    },
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Cocktail = mongoose.model("Movie", CocktailSchema);
-
+const Cocktail = model("Cocktail", cocktailSchema);
 module.exports = Cocktail;
