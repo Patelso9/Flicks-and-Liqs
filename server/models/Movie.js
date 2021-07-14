@@ -7,10 +7,7 @@ const movieSchema = new Schema({
 
     },
 
-    id: {
-        type: Int,
-
-    },
+    
 
 })
 

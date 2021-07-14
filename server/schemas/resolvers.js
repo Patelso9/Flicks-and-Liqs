@@ -61,7 +61,7 @@ const resolvers = {
             if (context.user) {
                 const cocktail = await Cocktail.create({
                     name,
-                    id: context.user.username,
+                   
                 });
 
                 await User.findOneAndUpdate(
