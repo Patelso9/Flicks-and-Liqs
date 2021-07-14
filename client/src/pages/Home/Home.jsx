@@ -1,5 +1,6 @@
 import React from 'react'
 import Cocktail from '../../components/Cocktail/Cocktail'
+import Movie from '../../components/Movie/Movie'
 // import Nav from '../../components/Nav/Nav'
 
 const Home = () => {
@@ -8,16 +9,7 @@ const Home = () => {
             {/* <Nav>Nav Bar</Nav> */}
 
             <div className='movie-box'>
-                <button className="movie-random">Flick</button>
-                <form className='movie-search'>
-                    <input text="text" placeholder="search for flick" />
-                    <button>Search Flick</button>
-                    <button>Save Flick</button>
-                </form>
-                <hr/>
-                <div className ="movie-return">
-                    Movie randomizer/search result
-                </div>
+                <Movie />
             </div>
 
 
@@ -32,7 +24,7 @@ const Home = () => {
                 <div className ="drink-return">
                     Drink randomizer/search result
                 </div>
-                <Cocktail />
+                {/* <Cocktail /> */}
             </div>
         </div>
         
