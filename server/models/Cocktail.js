@@ -7,9 +7,6 @@ const cocktailSchema = new Schema({
 
     },
 
-    id: {
-        type: Int,
-    },
 })
 
 const Cocktail = model("Cocktail", cocktailSchema);
