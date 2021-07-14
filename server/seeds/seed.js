@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const { User, Cocktail, Movie } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const cocktailSeeds = require('./cocktailSeeds.json');
+const cocktailSeeds = require('./drinkSeeds.json');
 const movieSeeds = require('./movieSeeds.json');
 
 
