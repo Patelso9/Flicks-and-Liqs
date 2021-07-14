@@ -11,21 +11,12 @@ const Home = () => {
             <div className='movie-box'>
                 <Movie />
             </div>
-
-
-            <div className='drink-box'>
-                <button className="drink-random">Liq</button>
-                <form className='drink-search'>
-                    <input text="text" placeholder="search for liq" />
-                    <button>Search Liq</button>
-                    <button>Save Liq</button>
-                </form>
-                <hr/>
+                <hr />
                 <div className ="drink-return">
                     Drink randomizer/search result
                 </div>
                 {/* <Cocktail /> */}
-            </div>
+
         </div>
         
     )

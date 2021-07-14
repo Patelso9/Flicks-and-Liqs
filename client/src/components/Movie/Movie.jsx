@@ -6,7 +6,7 @@ import MovieComponents from './MovieComponents'
 const Movie = () => {
 
   const [movies, setMovies] = useState([])
-  const search = "moana"
+  const search = "frozen"
 
   useEffect(() => {
     axios.get(`https://www.omdbapi.com/?t='${search}'&apikey=7a94102a`)
@@ -19,10 +19,6 @@ const Movie = () => {
   const handleSubmit = e => {
     setMovies(e.target.value)
   }
-
-  // const movieSearched = movies.filter(movie =>
-  //   movie.name.includes(search))
-    // check on api key and search criteria
 
     return (
         <div>
