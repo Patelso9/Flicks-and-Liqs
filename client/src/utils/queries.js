@@ -6,22 +6,34 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      movies {
         _id
-        thoughtText
-        createdAt
+        movieText
+      }
+      cocktails {
+        _id
+        drinkText
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_MOVIES = gql`
+  query getMovies {
+    movies {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      movieText
+      movieAuthor
+    }
+  }
+`;
+
+export const QUERY_COCKTAILS = gql`
+  query getCocktails {
+    cocktails {
+      _id
+      drinkText
+      drinkAuthor
     }
   }
 `;
