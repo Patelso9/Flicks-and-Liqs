@@ -57,10 +57,11 @@ const resolvers = {
 
             return { token, user };
         },
-        addCocktail: async (parent, { name }, context) => {
+        addCocktail: async (parent, { drinkText }, context) => {
             if (context.user) {
                 const cocktail = await Cocktail.create({
-                    name,
+                    drinkText,
+                    drinkAuthor: context.user.username,
                    
                 });
 
@@ -74,11 +75,11 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
 
-        addMovie: async (parent, { name }, context) => {
+        addMovie: async (parent, { movieText }, context) => {
             if (context.user) {
                 const movie = await Movie.create({
-                    name,
-                    id: context.user.username,
+                    movieText,
+                    movieAuthor: context.user.username,
                 });
 
                 await User.findOneAndUpdate(
