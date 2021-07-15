@@ -1,5 +1,5 @@
 import React from 'react'
-// import MovieSaved from '../../components/Movie/MovieSaved'
+import MovieSaved from '../../components/Movie/MovieSaved'
 
 const Profile = () => {
     return (
@@ -9,7 +9,7 @@ const Profile = () => {
 
             <div className="movie-saved">
                 <h2>Saved Movies</h2>
-                {/* <MovieSaved /> */}
+                <MovieSaved />
             </div>
 
             <div className="drink-saved">
