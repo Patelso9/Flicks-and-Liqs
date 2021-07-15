@@ -17,7 +17,7 @@ const Home = () => {
                 <div className ="drink-return">
                     Drink randomizer/search result
                 </div>
-                {/* <Cocktail /> */}
+                <Cocktail />
 
         </div>
         
