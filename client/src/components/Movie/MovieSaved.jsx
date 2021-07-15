@@ -1,17 +1,17 @@
-import React, { useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
 
-import {ADD_MOVIE} from '../../utils/mutations';
-import {QUERY_MOVIES, QUERY_ME} from '../../utils/queries';
+import { ADD_MOVIE } from '../../utils/mutations';
+import { QUERY_MOVIES, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
 const MovieSaved = () => {
   const [movieText, setMovieText] = useState('');
 
-  
+
 
   const [addMovie, { error }] = useMutation(ADD_MOVIE, {
     update(cache, { data: { addMovie } }) {
@@ -50,12 +50,16 @@ const MovieSaved = () => {
     } catch (err) {
       console.error(err);
     }
-    
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-
-      
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'movieText') {
+      setMovieText(value)
+    }
+
+  }
 
   return (
     <div>
@@ -63,8 +67,8 @@ const MovieSaved = () => {
 
       {Auth.loggedIn() ? (
         <>
-        <p>
-        </p>
+          <p>
+          </p>
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -92,14 +96,14 @@ const MovieSaved = () => {
             )}
           </form>
         </>
-      ) : (
+       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to save movies. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
-      )}
+      )} 
     </div>
   )
-}
+
 }
 export default MovieSaved

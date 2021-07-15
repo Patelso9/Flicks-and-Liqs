@@ -44,9 +44,9 @@ type Query {
 type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addCocktail(Name: String!): Cocktail 
+    addCocktail(drinkText: String!): Cocktail 
     removeCocktail(cocktailId: ID!): Cocktail
-    addMovie(Name: String!): Movie
+    addMovie(movieText: String!): Movie
     removeMovie(movieId: ID!): Movie
    
   }

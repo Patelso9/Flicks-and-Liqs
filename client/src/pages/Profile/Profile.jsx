@@ -1,5 +1,5 @@
 import React from 'react'
-// import MovieSaved from '../../components/Movie/MovieSaved'
+import MovieSaved from '../../components/Movie/MovieSaved'
 
 const Profile = () => {
     return (
