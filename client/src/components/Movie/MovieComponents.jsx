@@ -8,10 +8,10 @@ const MovieComponents = ({ name, image, plot, genre, year, rating, award, runtim
                     <h1>{name}</h1>
                     <img src={image} alt="flick img" />
                     <p>{runtime} ({year})</p>
-                    <p>Genre: {genre}</p>
+                    <p>{genre}</p>
                     <p>{plot}</p>
-                    <p>Awards Recieved: {award}</p>
-                    <p>IMDB rating: {rating} </p>
+                    <p>{award}</p>
+                    <p>Rating: {rating} </p>
                 </div>
             </div>
         </div>

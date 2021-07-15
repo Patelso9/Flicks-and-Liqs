@@ -6,7 +6,7 @@ import MovieComponents from './MovieComponents'
 const Movie = () => {
 
   const [movies, setMovies] = useState([])
-  const search = "frozen"
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     axios.get(`https://www.omdbapi.com/?t='${search}'&apikey=7a94102a`)
@@ -15,19 +15,33 @@ const Movie = () => {
     }).catch(err=> console.log(err, 'error in setMovies useEffect'))
   })
 
+  const handleChange = e => {
+    setSearch(e.target.value);
+  }
 
   const handleSubmit = e => {
-    setMovies(e.target.value)
+    e.preventDefault();
   }
+
+  const handleKeypress = e => {
+    //it triggers by pressing the enter key
+  if (e.keyCode === 13) {
+    handleSubmit();
+  }
+};
 
     return (
         <div>
           <div className="liq-header">
 
           <button className="movie-random">Flick</button>
-                <form className='movie-search' onChange={handleSubmit}>
-                    <input text="text" placeholder="search for flick" />
-                    <button>Search Flick</button>
+                <form className='movie-search'>
+                    <input text="text" 
+                      placeholder="search for flick" 
+                      search={search} 
+                      onChange={handleChange}
+                      onKeyPress={handleKeypress} />
+                    <button onClick={handleSubmit}>Search Flick</button>
                     <button>Save Flick</button>
                 </form>
                 <hr/>
