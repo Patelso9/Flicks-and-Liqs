@@ -13,13 +13,13 @@ const Movie = () => {
     .then(res => {
       setMovies(res.data);
     }).catch(err=> console.log(err, 'error in setMovies useEffect'))
-  })
+  }, [search])
 
-  const handleChange = e => {
+  const handleChange = async e => {
     setSearch(e.target.value);
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
   }
 
@@ -38,7 +38,7 @@ const Movie = () => {
                 <form className='movie-search'>
                     <input text="text" 
                       placeholder="search for flick" 
-                      search={search} 
+                      name="search" 
                       onChange={handleChange}
                       onKeyPress={handleKeypress} />
                     <button onClick={handleSubmit}>Search Flick</button>

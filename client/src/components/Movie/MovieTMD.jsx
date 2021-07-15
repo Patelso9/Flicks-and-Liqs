@@ -13,15 +13,16 @@ const MovieTMD = () => {
         }).catch(err=> console.log(err, 'TMDB api issue'))
     }, [])
 
-    // const handleChange = e => {
-    //     setMovies(e.target.value)
-    // }
+    const handleChange = async e => {
+        e.preventDefault()
+        setMovies(e.target.value)
+    }
 
     return (
         <div>
             <div className="liq-header">
 
-            <button className="movie-random">Flick</button>
+            <button className="movie-random" onChange={handleChange}>Flick</button>
                 <form className='movie-search'>
                     <input text="text" 
                         placeholder="search for flick" 
