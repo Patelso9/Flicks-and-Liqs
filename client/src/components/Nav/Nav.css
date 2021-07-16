@@ -6,3 +6,8 @@
     padding: 30px;
     margin-bottom: 20px ;
 }
+
+a{
+    color: var(--nav-text);
+    text-decoration: none;
+  }
