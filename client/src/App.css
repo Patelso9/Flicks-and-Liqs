@@ -1,12 +1,81 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@500&display=swap');
+
 :root{
- --Bakground-color: maroon;
- --nav-text: white;
+  --navback: rgb(116, 16, 16);
+  --navtext: white;
+  --bodyback: slategray;
+  --titletxt: 'Monoton', cursive;
+  --cardtxt: 'Newsreader', serif;
+}
+
+body{
+  background-color: var(--bodyback);
+  text-align: center;
+  
 }
 
 a{
   color: var(--nav-text);
   text-decoration: none;
 }
+
+img{
+   display: block;
+   /* width: 100%; */
+   height: 300px;
+   margin: auto;
+   
+}
+
+h1{
+  color: var(--navtext);
+}
+
+h2{
+   color: var(--navback);
+   font-weight: bold;
+}
+
+button{
+  background-color: var(--navback);
+  color: var(--navtext);
+  font-family: var(--titletxt);
+}
+
+input {
+  font-family: 'Indie Flower', cursive;
+}
+
+   .display-4{
+       font-family: 'Monoton', cursive;
+   }
+   .lead{
+       font-family: 'Indie Flower', cursive;
+   }
+
+.card{
+   background-color: rgba(211, 200, 200, 0.527);
+   font-family: var(--cardtxt);
+}
+
+   #card.flipped {
+       transform: rotateY(180deg);
+   }
+
+.btn-outline-danger{
+   font-family: var(--titletxt);
+   color: var(--navback);
+   font-size: 150%;
+   margin-top: 5px;
+}
+
+
+
+
+
 
 
 
