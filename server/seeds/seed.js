@@ -1,41 +1,33 @@
 const db = require('../config/connection');
-const { User, Cocktail, Movie } = require('../models');
+const { User, Movie } = require('../models');
 
-const userData = require('./userSeeds.json');
-const cocktailData = require('./drinkSeeds.json');
-const movieData = require('./movieSeeds.json');
+const userSeeds = require('./userSeeds.json');
+// const cocktailData = require('./drinkSeeds.json');
+const movieSeeds = require('./movieSeeds.json');
 
+db.once('open', async () => {
+  try {
+    await Movie.deleteMany({});
+    await User.deleteMany({});
 
-db.once('open' , async () => {
-await User.deleteMany({});
-await Cocktail.deleteMany({});
-await Movie.deleteMany({});
+    await User.create(userSeeds);
 
-// bulk create each model
-const users = await User.insertMany(userData);
-const cocktails = await Cocktail.insertMany(cocktailData);
-const movies = await Movie.insertMany(movieData);
-
-for (newCocktail of cocktails) {
-  // randomly add each class to a school
-  const tempUser = users[Math.floor(Math.random() * cocktails.length)];
-  tempUser.cocktails.push(newCocktail._id);
-  await tempUser.save();
-}
-
-for (newMovie of movies) {
-  // randomly add each class to a school
-  const tempUser = users[Math.floor(Math.random() * movies.length)];
-  tempUser.movies.push(newMovie._id);
-  await tempUser.save();
-}
-
-
-
-
-
+    for (let i = 0; i < movieSeeds.length; i++) {
+      const { _id, movieAuthor } = await Movie.create(movieSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: movieAuthor },
+        {
+          $addToSet: {
+            movie: _id,
+          },
+        }
+      );
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
   console.log('all done!');
   process.exit(0);
-
-})
+});

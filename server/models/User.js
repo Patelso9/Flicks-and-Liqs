@@ -25,12 +25,6 @@ const userSchema = new Schema({
             ref: 'Movie',
         },
     ],
-    cocktails: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Cocktail',
-        },
-    ],
 });
 
 userSchema.pre('save', async function (next) {

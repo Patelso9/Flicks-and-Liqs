@@ -1,21 +1,14 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Cocktail, Movie } = require('../models');
+const { User, Movie } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         users: async () => {
-            return User.find().populate('movies', 'cocktails');
+            return User.find().populate('movies');
         },
         user: async (parent, { username }) => {
-            return User.findOne({ username }).populate('movies', 'cocktails');
-        },
-        cocktails: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Cocktail.find(params).sort({ createdAt: -1 });
-        },
-        cocktail: async (parent, { cocktailId }) => {
-            return Cocktail.findOne({ _id: cocktailId });
+            return User.findOne({ username }).populate('movies');
         },
 
         movies: async (parent, { username }) => {
@@ -27,7 +20,7 @@ const resolvers = {
         },
         me: async (parent, args, context) => {
             if (context.user) {
-                return User.findOne({ _id: context.user._id }).populate('movies', 'cocktails');
+                return User.findOne({ _id: context.user._id }).populate('movies');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -57,54 +50,21 @@ const resolvers = {
 
             return { token, user };
         },
-        addCocktail: async (parent, { drinkText }, context) => {
-            if (context.user) {
-                const cocktail = await Cocktail.create({
-                    drinkText,
-                    drinkAuthor: context.user.username,
-                   
-                });
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $addToSet: { cocktails: cocktail_id } }
-                );
-
-                return cocktail;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
 
         addMovie: async (parent, { movieText }, context) => {
             if (context.user) {
                 const movie = await Movie.create({
                     movieText,
+                    //revist this
                     movieAuthor: context.user.username,
                 });
 
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet: { movies: movie_id } }
+                    { $addToSet: { movies: movie._id } }
                 );
 
                 return movie;
-            }
-            throw new AuthenticationError('You need to be logged in!');
-        },
-
-        removeCocktail: async (parent, { cocktailId }, context) => {
-            if (context.user) {
-                const cocktail = await Cocktail.findOneAndDelete({
-                    _id: cocktailId,
-                    cocktailAuthor: context.user.username,
-                });
-
-                await User.findOneAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { cocktails: cocktail._id } }
-                );
-
-                return cocktail;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -119,10 +79,10 @@ const resolvers = {
 
                 await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { movies: movies._id } }
+                    { $pull: { movies: movie._id } }
                 );
 
-                return thought;
+                return movie;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
