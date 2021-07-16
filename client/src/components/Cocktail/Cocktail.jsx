@@ -16,8 +16,8 @@ const Cocktail = () => {
     const getNewDrink = () => {
         axios.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then(res => {
-            console.log(res.data)
-            setDrinks(res.data)
+            console.log(res.data.drinks[0])
+            setDrinks(res.data.drinks[0])
         })
         .catch(err => console.log(err, 'error loading s api'))
     }
@@ -56,11 +56,11 @@ const Cocktail = () => {
                 </form>
                 <hr/>
                 <CocktailComponents
-                    // key={s.drinks.idDrink}
-                    // image={s.drinks.strDrinkThumb}
-                    // name={s.drinks.strDrink}
-                    // ing={s.drinks.strIngredient1}
-                    // direction={s.drinks[0].strInstructions}
+                    key={drinks.idDrink}
+                    image={drinks.strDrinkThumb}
+                    name={drinks.strDrink}
+                    ingredient={drinks.strIngredient1}
+                    direction={drinks.strInstructions}
                     />        
             </div>
         </div>
