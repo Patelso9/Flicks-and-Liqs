@@ -8,6 +8,7 @@ const Movie = () => {
   const [movies, setMovies] = useState([])
   const [search, setSearch] = useState('')
 
+
   useEffect(() => {
     axios.get(`https://www.omdbapi.com/?t='${search}'&apikey=7a94102a`)
     .then(res => {
