@@ -65,7 +65,6 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 </h3>
-                <br />
                 <h3>Password:
                 <input
                   className="form-input"

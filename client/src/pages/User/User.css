@@ -30,13 +30,17 @@ button{
 }
 
 .submit{
-    padding: 5px;
+    padding: 10px;
     font-size: 20px;
+    font-family: var(--cardtxt);
+    border-style: double;
+    color: var(--bodyback);
+    margin-top: -20px;
 }
 
 .toggle{
     margin-top: -15px;
-    color: var(--navtext)
+    color: var(--endgrad)
 }
 
 input{

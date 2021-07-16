@@ -39,9 +39,10 @@ h1{
 
 
 h6{
-    margin-top: -20px;
-    color: var(--bodyback);
+    margin-top: -50px;
+    color: var(--endgrad);
     font-family: var(--handwriting);
+    font-size: 15px;
 }
 
 .or{
@@ -50,21 +51,26 @@ h6{
     font-family: var(--handwriting);
 }
 
+.stress-yes{
+  padding: 20px;
+    outline-style: dotted;
+    outline-color: var(--bodyback);
+    font-family: var(--handwriting);
+    color: var(--bodyback);
+    font-size: 40px;
+}
+
 .stress-options{
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
-    color: var(--bodyback);
     font-size: 30px;
-    font-family: var(--handwriting);
-    padding: 20px;
-    outline-style: dotted;
-    outline-color: var(--bodyback);
+    
 }
 
 .are-you{
   font-size: 30px;
-    font-family: var(--handwriting);
+  font-family: var(--handwriting);
 overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid black; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
