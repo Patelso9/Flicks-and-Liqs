@@ -45,7 +45,7 @@ function App() {
         <Router>
           <div>
             <Nav />
-            <Switch>
+            {/* <Switch> */}
               <Route path="/" component={Landing} exact/>
               {/* <Route path="/customize" component={Customize} /> */}
               <Route path="/home" component={Home} />
@@ -53,7 +53,7 @@ function App() {
               {/* <Route path="/guest" component={} /> */}
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
-              </Switch>
+              {/* </Switch> */}
           </div>
           </Router>
           </ApolloProvider>
