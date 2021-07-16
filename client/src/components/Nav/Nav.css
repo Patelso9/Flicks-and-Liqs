@@ -1,8 +1,16 @@
+:root{
+    --navback: rgb(116, 16, 16);
+    --navtext: white;
+    --bodyback: slategray;
+    --titletxt: 'Monoton', cursive;
+    --cardtxt: 'Newsreader', serif;
+  }
+
 .nav-bar{
     display: flex;
     justify-content: space-evenly;
-    background-color: maroon;
-    color: white;
+    background-color: var(--navback);
+    color: var(--bodyback);
     padding: 30px;
     margin-bottom: 20px ;
 }
