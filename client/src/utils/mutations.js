@@ -34,14 +34,7 @@ export const ADD_MOVIE = gql`
   }
 `;
 
-export const ADD_COCKTAIL = gql`
-  mutation addCocktail($drinkText: String!) {
-    addCocktail(drinkText: $drinkText) {
-      _id
-      drinkText
-      drinkAuthor
-    }
-  }
-`;
+
+
 
 
