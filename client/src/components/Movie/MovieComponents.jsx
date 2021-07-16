@@ -5,7 +5,7 @@ const MovieComponents = ({ name, image, plot, genre, year, rating, award, runtim
         <div>
             <div className='movie-row'>
                 <div className="movie">
-                    <h1>{name}</h1>
+                    <h3>{name}</h3>
                     <img src={image} alt="flick img" />
                     <p>{runtime} ({year})</p>
                     <p>{genre}</p>

@@ -5,7 +5,7 @@ const CocktailComponents = ({ name, image, ingredient, direction }) => {
         <div className="cocktail-container">
                 <div className='cocktail-row'>
                 <div className="cocktail">
-                    <h1>{name}</h1>
+                    <h3>{name}</h3>
                     <img src={image} alt="liq img" />
                     <p>{ingredient}</p>
                     <p>{direction}</p>

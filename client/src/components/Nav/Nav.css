@@ -31,8 +31,11 @@
     flex-wrap: wrap;
     background-color: var(--navback);
     color: var(--bodyback);
-    padding: 10px;
+    padding: 0%;
     margin-bottom: 20px ;
+    border-bottom: dashed;
+    border-color: var(--endgrad);
+    border-width: thick;
 }
 
 a{

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@500&display=swap');
+
+:root{
+    --navback: rgb(116, 16, 16);
+    --navtext: white;
+    --bodyback: slategray;
+    --endgrad: rgb(160, 121, 121);
+    --clear: rgba(255, 0, 0, 0);
+    --titletxt: 'Monoton', cursive;
+    --handwriting: 'Indie Flower', cursive;
+    --cardtxt: 'Newsreader', serif;
+  }
+
+  .home{
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .home-card{
+    width: 49%;
+}
+
+    .comp-card{
+        background-image: linear-gradient(rgba(112, 128, 144, 0.774), rgba(160, 121, 121, 0.418));
+        border-radius: 25px;
+        padding: 10px;
+        font-family: var(--cardtxt);
+    }
+    
+h3{
+    font-size: 30px;
+    font-family: var(--cardtxt);
+}
+  img{
+      width:80%;
+  }
+
+  .randomize{
+      font-family: var(--titletxt);
+      font-size: 60px;
+      color: var(--navtext);
+      /* border-bottom: inset; */
+      border-color: var(--endgrad);
+      outline-color: var(--endgrad);
+      padding: 0 15px;
+  }
+
+  hr{
+      border-color: var(--endgrad);
+      border-style: ridge;
+  }
+
+  .save-btn{
+    font-family: var(--handwriting); 
+    font-size: 17px;
+    outline-style: double;
+    color: var(--bodyback)
+  }
+
+  p{
+      font-family: var(--cardtxt);
+  }
+
+
+
+

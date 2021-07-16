@@ -40,11 +40,11 @@ h2{
    font-weight: bold;
 }
 
-button{
+/* button{
   background-color: var(--navback);
   color: var(--navtext);
   font-family: var(--titletxt);
-}
+} */
 
 input {
   font-family: 'Indie Flower', cursive;
@@ -73,7 +73,9 @@ input {
    margin-top: 5px;
 }
 
-
+.randomize{
+  font-family: var(--titletxt);
+}
 
 
 
