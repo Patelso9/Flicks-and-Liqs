@@ -44,15 +44,15 @@ function App() {
         <ApolloProvider client={client}>
         <Router>
           <div>
-            <Nav />
+            {/* <Nav /> */}
             {/* <Switch> */}
               <Route path="/" component={Landing} exact/>
-              {/* <Route path="/customize" component={Customize} /> */}
               <Route path="/home" component={Home} />
               <Route path="/profile" component={Profile} />
-              {/* <Route path="/guest" component={} /> */}
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              {/* <Route path="/customize" component={Customize} /> */}
+              {/* <Route path="/guest" component={} /> */}
               {/* </Switch> */}
           </div>
           </Router>

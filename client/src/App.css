@@ -8,6 +8,7 @@
   --navtext: white;
   --bodyback: slategray;
   --titletxt: 'Monoton', cursive;
+  --handwriting: 'Indie Flower', cursive;
   --cardtxt: 'Newsreader', serif;
 }
 
@@ -31,7 +32,7 @@ img{
 }
 
 h1{
-  color: var(--navtext);
+  color: var(--navback);
 }
 
 h2{
@@ -39,11 +40,11 @@ h2{
    font-weight: bold;
 }
 
-button{
+/* button{
   background-color: var(--navback);
   color: var(--navtext);
   font-family: var(--titletxt);
-}
+} */
 
 input {
   font-family: 'Indie Flower', cursive;
@@ -72,7 +73,9 @@ input {
    margin-top: 5px;
 }
 
-
+.randomize{
+  font-family: var(--titletxt);
+}
 
 
 

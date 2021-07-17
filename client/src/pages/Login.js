@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import './User/User.css'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -42,18 +43,19 @@ const Login = (props) => {
 
   return (
     <main className="flex-row justify-center mb-4">
-        <h1>This is a test</h1>
+        <h1>Flicks&Liqs</h1>
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h2 className="login-h2">Login</h2>
           <div className="card-body">
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Redirect to="/home"> to the homepage.</Redirect>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <h3>Email:
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -62,6 +64,8 @@ const Login = (props) => {
                   value={formState.email}
                   onChange={handleChange}
                 />
+                </h3>
+                <h3>Password:
                 <input
                   className="form-input"
                   placeholder="******"
@@ -70,8 +74,10 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                </h3>
+                <br />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="submit"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -80,8 +86,12 @@ const Login = (props) => {
               </form>
             )}
 
+            <NavLink to="/signup">
+                  <h3 className="toggle">Sign up here</h3>
+              </NavLink>
+
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="error">
                 {error.message}
               </div>
             )}

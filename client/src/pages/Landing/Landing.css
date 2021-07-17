@@ -1,18 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@500&display=swap');
+
+
+:root{
+    --navback: rgb(116, 16, 16);
+    --navtext: white;
+    --bodyback: slategray;
+    --endgrad: rgb(160, 121, 121);
+    --clear: rgba(255, 0, 0, 0);
+    --titletxt: 'Monoton', cursive;
+    --handwriting: 'Indie Flower', cursive;
+    --cardtxt: 'Newsreader', serif;
+  }
+
+html{
+    background-image: linear-gradient(rgb(116, 16, 16), rgb(160, 121, 121));
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-color: var(--endgrad);
+}
+
 body{
     text-align: center;
+    margin-bottom: 300px;
+}
+
+button{
+    border: none;
+    background-color: var(--clear);
+}
+
+h1{
+    font-family: 'Monoton', cursive;
+    font-size: 80px;
+    color: var(--navtext);
+}
+
+
+h6{
+    margin-top: -50px;
+    color: var(--endgrad);
+    font-family: var(--handwriting);
+    font-size: 15px;
+}
+
+.or{
+    margin: 30px;
+    font-size: 30px;
+    font-family: var(--handwriting);
+}
+
+.stress-yes{
+  padding: 20px;
+    outline-style: dotted;
+    outline-color: var(--bodyback);
+    font-family: var(--handwriting);
+    color: var(--bodyback);
+    font-size: 40px;
 }
 
 .stress-options{
     display: inline-flex;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 30px;
+    
 }
 
-.stress-yes{
-    margin: 40px
+.are-you{
+  font-size: 30px;
+  font-family: var(--handwriting);
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .10em; /* Adjust as needed */
+  animation: 
+    typing 9s steps(40, end),
+    blink-caret .75s step-end infinite;
+  margin-bottom: 20px;
 }
 
-p.stress-options{
-    margin: 40px;
-
-}
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  }

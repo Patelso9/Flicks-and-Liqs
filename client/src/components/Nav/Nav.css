@@ -1,10 +1,41 @@
-.nav-bar{
+:root{
+    --navback: rgb(116, 16, 16);
+    --navtext: white;
+    --bodyback: slategray;
+    --endgrad: rgb(160, 121, 121);
+    --clear: rgba(255, 0, 0, 0);
+    --titletxt: 'Monoton', cursive;
+    --handwriting: 'Indie Flower', cursive;
+    --cardtxt: 'Newsreader', serif;
+  }
+
+  .nav-logo{
+      font-size: 45px;
+      margin: 10px;
+      padding-right: 60px;
+      text-align: left;
+  }
+
+  .nav-items{
     display: flex;
     justify-content: space-evenly;
-    background-color: maroon;
-    color: white;
-    padding: 30px;
+    flex-grow: 2;
+    font-family: var(--handwriting);
+    font-size: 25px;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: var(--navback);
+    color: var(--bodyback);
+    padding: 0%;
     margin-bottom: 20px ;
+    border-bottom: dashed;
+    border-color: var(--endgrad);
+    border-width: thick;
 }
 
 a{

@@ -40,28 +40,29 @@ const Cocktail = () => {
         <div>
             <div className='s-box'>
                 <form className='s-search'>
-                    <button className="s-random" 
+                    <button className="randomize" 
                         onChange={handleChange} 
                         onClick={handleSubmit}
                         // name="search" 
                         >Liq</button>
+                        <br />
                     <input text="text" 
                         placeholder="search for liq" 
                         // onChange={handleChange}
                         />
-                    <button 
-                        // onClick={handleSubmit}
-                        >Search Liq</button>
-                    <button>Save Liq</button>
+                     {/* <button onClick={handleSubmit}>Search Liq</button> */}
+                    <button className="save-btn">Save Liq</button>
                 </form>
                 <hr/>
+                <div className="comp-card">
                 <CocktailComponents
                     key={drinks.idDrink}
                     image={drinks.strDrinkThumb}
                     name={drinks.strDrink}
                     ingredient={drinks.strIngredient1}
                     direction={drinks.strInstructions}
-                    />        
+                    />  
+                </div>
             </div>
         </div>
     )
