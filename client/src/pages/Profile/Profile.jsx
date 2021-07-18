@@ -1,14 +1,15 @@
 import React from 'react'
-import MovieSaved from '../../components/Movie/MovieSaved'
-import MovieList from '../../components/Movie/MovieList'
+import { Redirect, useParams, NavLink } from 'react-router-dom';
 
-import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth'
 import Nav from '../../components/Nav/Nav';
+import MovieSaved from '../../components/Movie/MovieSaved'
+import MovieList from '../../components/Movie/MovieList'
+import CocktailList from '../../components/Cocktail/CocktailList';
+import CocktailSaved from '../../components/Cocktail/CocktailSaved';
 
 const Profile = () => {
     const { username: userParam } = useParams();
@@ -29,36 +30,64 @@ const Profile = () => {
   
     if (!user?.username) {
       return (
+        <div>
         <h4>
           You need to be logged in to see this. Use the navigation links above to
           sign up or log in!
         </h4>
+        <NavLink to="/login">
+        <h3 className="toggle">Log in here</h3>
+      </NavLink>
+      </div>
+
       );
     }
     return (
         <div>
           <Nav />
           <div className="flex-row justify-center mb-3">
-            <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-              Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-            </h2>
-    
-            <div className="col-12 col-md-10 mb-5">
+            <h3 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+              {userParam ? `${user.username}'s` : 'Your'} profile
+            </h3>
+
+<div className='home'>
+        <div className="home-card">
+        <h2>Saved Movies</h2>
+            <div className="comp-card">
               <MovieList
                 movies={user.movies}
-                title={`${user.username}'s thoughts...`}
+                title={`${user.username}'s movies...`}
                 showTitle={false}
                 showUsername={false}
               />
             </div>
             {!userParam && (
-              <div
-                className="col-12 col-md-10 mb-3 p-3"
-                style={{ border: '1px dotted #1a1a1a' }}
-              >
+              <div className="col-12 col-md-10 mb-3 p-3">
                 <MovieSaved/>
               </div>
             )}
+          </div>
+
+          <hr />
+
+        <div className="home-card">
+        <h2>Saved Drinks</h2>
+            <div className="comp-card">
+              <CocktailList
+                drinks={user.drinks}
+                title={`${user.username}'s movies...`}
+                showTitle={false}
+                showUsername={false}
+              />
+            </div>
+            {!userParam && (
+              <div className="col-12 col-md-10 mb-3 p-3">
+                <CocktailSaved/>
+              </div>
+            )}
+          </div>
+          </div>    
+
           </div>
         </div>
       );

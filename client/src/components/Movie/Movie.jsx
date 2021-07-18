@@ -6,8 +6,7 @@ import MovieComponents from './MovieComponents'
 const Movie = () => {
 
   const [movies, setMovies] = useState([])
-  const [search, setSearch] = useState('')
-
+  const [search, setSearch] = useState('Moana')
 
   useEffect(() => {
     axios.get(`https://www.omdbapi.com/?t='${search}'&apikey=7a94102a`)
@@ -17,7 +16,7 @@ const Movie = () => {
   }, [search])
 
   const handleChange = async e => {
-    setSearch(e.target.value);
+      setSearch(e.target.value);
   }
 
   const handleSubmit = async e => {
@@ -35,17 +34,18 @@ const Movie = () => {
         <div>
           <div className="liq-header">
 
-          <button className="randomize">Flick</button>
+          <button className="randomize" id="rand-movie">Flick</button>
           <form className='movie-search'>
               <input text="text" 
                 placeholder="search for flick" 
                 name="search" 
                 onChange={handleChange}
-                onKeyPress={handleKeypress} />
+                onKeyPress={handleKeypress}
+                />
               {/* <button onClick={handleSubmit}>Search Flick</button> */}
               <button className="save-btn">Save Flick</button>
           </form>
-                <hr/>
+                {/* <hr/> */}
           <div className="comp-card">
                 <MovieComponents
                   key= {movies.imdbID}

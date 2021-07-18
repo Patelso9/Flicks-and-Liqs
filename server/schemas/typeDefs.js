@@ -8,12 +8,20 @@ type User {
     email: String
     password: String
     movies: [Movie]!
+    drinks: [Drink]!
 }
 
 type Movie {
     _id: ID
     movieText: String
     movieAuthor: String
+    
+}
+
+type Drink {
+    _id: ID
+    drinkText: String
+    drinkAuthor: String
     
 }
 
@@ -27,6 +35,8 @@ type Query {
     user(username: String!): User
     movies(username: String): [Movie]
     movie(movieId: ID!): Movie
+    drinks(username: String): [Drink]
+    drink(drinkId: ID!): Drink
     me: User
 }
 
@@ -37,6 +47,8 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addMovie(movieText: String!): Movie
     removeMovie(movieId: ID!): Movie
+    addDrink(drinkText: String!): Drink
+    removeDrink(drinkId: ID!): Movie
    
   }
 `;
