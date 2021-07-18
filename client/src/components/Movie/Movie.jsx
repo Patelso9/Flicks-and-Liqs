@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
-import './Movie.css'
+import '../../pages/Home/Home.css'
 import MovieComponents from './MovieComponents'
 
 const Movie = () => {
@@ -35,18 +35,18 @@ const Movie = () => {
         <div>
           <div className="liq-header">
 
-          <button className="movie-random">Flick</button>
-                <form className='movie-search'>
-                    <input text="text" 
-                      placeholder="search for flick" 
-                      name="search" 
-                      onChange={handleChange}
-                      onKeyPress={handleKeypress} />
-                    <button onClick={handleSubmit}>Search Flick</button>
-                    <button>Save Flick</button>
-                </form>
+          <button className="randomize">Flick</button>
+          <form className='movie-search'>
+              <input text="text" 
+                placeholder="search for flick" 
+                name="search" 
+                onChange={handleChange}
+                onKeyPress={handleKeypress} />
+              {/* <button onClick={handleSubmit}>Search Flick</button> */}
+              <button className="save-btn">Save Flick</button>
+          </form>
                 <hr/>
-
+          <div className="comp-card">
                 <MovieComponents
                   key= {movies.imdbID}
                   name= {movies.Title}
@@ -58,7 +58,7 @@ const Movie = () => {
                   runtime= {movies.Runtime}
                   award= {movies.Awards}
               />
-            
+            </div>
         </div>
         </div>
     )

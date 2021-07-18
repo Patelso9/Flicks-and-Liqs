@@ -1,0 +1,54 @@
+:root{
+    --navback: rgb(116, 16, 16);
+    --navtext: white;
+    --bodyback: slategray;
+    --endgrad: rgb(160, 121, 121);
+    --clear: rgba(255, 0, 0, 0);
+    --titletxt: 'Monoton', cursive;
+    --handwriting: 'Indie Flower', cursive;
+    --cardtxt: 'Newsreader', serif;
+  }
+
+h2{
+    font-family: var(--cardtxt);
+    font-size: 30px;
+    color: var(--bodyback);
+    /* margin-top: -20px; */
+}
+
+h3{
+    font-family: var(--handwriting);
+}
+
+.error{
+    font-family: var(--handwriting);
+    color: var(--navback);
+}
+
+button{
+    margin: 20px;
+}
+
+.submit{
+    padding: 10px;
+    font-size: 20px;
+    font-family: var(--cardtxt);
+    border-style: double;
+    color: var(--bodyback);
+    margin-top: -20px;
+}
+
+.toggle{
+    margin-top: -15px;
+    color: var(--endgrad)
+}
+
+input{
+    background-color: var(--endgrad);
+    border: none;
+    padding: 10px;
+    font-family: var(--handwriting);
+    font-size: 20px;
+    border-radius: 10px;
+    margin-left: 15px;
+}
