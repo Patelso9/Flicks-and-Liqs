@@ -1,14 +1,16 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Movie } = require('../models');
+const { User, Movie, Drink } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
         users: async () => {
             return User.find().populate('movies');
+            return User.find().populate('drinks');
         },
         user: async (parent, { username }) => {
             return User.findOne({ username }).populate('movies');
+            return User.findOne({ username }).populate('drinks');
         },
 
         movies: async (parent, { username }) => {
@@ -18,9 +20,17 @@ const resolvers = {
         movie: async (parent, { movieId }) => {
             return Movie.findOne({ _id: movieId });
         },
+        drinks: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Drink.find(params).sort({ createdAt: -1 });
+        },
+        drink: async (parent, { drinkId }) => {
+            return Drink.findOne({ _id: drinkId });
+        },
         me: async (parent, args, context) => {
             if (context.user) {
                 return User.findOne({ _id: context.user._id }).populate('movies');
+                return User.findOne({ _id: context.user._id }).populate('drinks');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -83,6 +93,42 @@ const resolvers = {
                 );
 
                 return movie;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+        addDrink: async (parent, { drinkText }, context) => {
+            if (context.user) {
+                const drink = await Drink.create({
+                    drinkText,
+                    //revist this
+                    drinkAuthor: context.user.username,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { drinks: drink._id } }
+                );
+
+                return drink;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
+
+
+        removeDrink: async (parent, { drinkId }, context) => {
+            if (context.user) {
+                const movie = await Drink.findOneAndDelete({
+                    _id: drinkId,
+                    drinkAuthor: context.user.username,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { drinks: drink._id } }
+                );
+
+                return drink;
             }
             throw new AuthenticationError('You need to be logged in!');
         },

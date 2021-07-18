@@ -10,6 +10,10 @@ export const QUERY_USER = gql`
         _id
         movieText
       }
+      drinks {
+        _id
+        drinkText
+      }
     }
   }
 `;
@@ -20,6 +24,16 @@ export const QUERY_MOVIES = gql`
       _id
       movieText
       movieAuthor
+    }
+  }
+`;
+
+export const QUERY_DRINKS = gql`
+  query getDrinks {
+    drinks {
+      _id
+      drinkText
+      drinkAuthor
     }
   }
 `;
@@ -37,6 +51,11 @@ export const QUERY_ME = gql`
         _id
         movieText
         movieAuthor
+      }
+      drinks {
+        _id
+        drinkText
+        drinkAuthor
       }
     }
   }
