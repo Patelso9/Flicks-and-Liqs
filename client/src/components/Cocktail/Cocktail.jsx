@@ -53,14 +53,21 @@ const Cocktail = () => {
                      {/* <button onClick={handleSubmit}>Search Liq</button> */}
                     <button className="save-btn">Save Liq</button>
                 </form>
-                <hr/>
+                {/* <hr/> */}
                 <div className="comp-card">
                 <CocktailComponents
                     key={drinks.idDrink}
                     image={drinks.strDrinkThumb}
                     name={drinks.strDrink}
-                    ingredient={drinks.strIngredient1}
                     direction={drinks.strInstructions}
+                    i1={drinks.strIngredient1}
+                    i2={drinks.strIngredient2}
+                    i3={drinks.strIngredient3}
+                    i4={drinks.strIngredient4}
+                    i5={drinks.strIngredient5}
+                    i6={drinks.strIngredient6}
+                    i7={drinks.strIngredient7}
+                    i8={drinks.strIngredient8}
                     />  
                 </div>
             </div>

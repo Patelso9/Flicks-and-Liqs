@@ -4,22 +4,22 @@ import { useMutation } from '@apollo/client';
 import '../../pages/User/User.css';
 
 
-import { ADD_MOVIE } from '../../utils/mutations';
-import { QUERY_MOVIES, QUERY_ME } from '../../utils/queries';
+import { ADD_DRINK } from '../../utils/mutations';
+import { QUERY_DRINKS, QUERY_ME } from '../../utils/queries';
 
 import Auth from '../../utils/auth';
 
-const MovieSaved = () => {
-  const [movieText, setMovieText] = useState('');
+const CocktailSaved = () => {
+  const [drinkText, setdrinkText] = useState('');
 
-  const [addMovie, { error }] = useMutation(ADD_MOVIE, {
-    update(cache, { data: { addMovie } }) {
+  const [addDrink, { error }] = useMutation(ADD_DRINK, {
+    update(cache, { data: { addDrink } }) {
       try {
-        const { movies } = cache.readQuery({ query: QUERY_MOVIES });
+        const { drinks } = cache.readQuery({ query: QUERY_DRINKS });
 
         cache.writeQuery({
-          query: QUERY_MOVIES,
-          data: { movies: [addMovie, ...movies] },
+          query: QUERY_DRINKS,
+          data: { drinks: [addDrink, ...drinks] },
         });
       } catch (e) {
         console.error(e);
@@ -29,7 +29,7 @@ const MovieSaved = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, movies: [...me.movies, addMovie] } },
+        data: { me: { ...me, drinks: [...me.drinks, addDrink] } },
       });
     },
   });
@@ -38,14 +38,14 @@ const MovieSaved = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addMovie({
+      const { data } = await addDrink({
         variables: {
-          movieText,
-          movieAuthor: Auth.getProfile().data.username,
+          drinkText,
+          drinkAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setMovieText('');
+      setdrinkText('');
     } catch (err) {
       console.error(err);
     }
@@ -54,8 +54,8 @@ const MovieSaved = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'movieText') {
-      setMovieText(value)
+    if (name === 'drinkText') {
+      setdrinkText(value)
     }
 
   }
@@ -73,9 +73,9 @@ const MovieSaved = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="movieText"
-                placeholder="Type in your movie"
-                value={movieText}
+                name="drinkText"
+                placeholder="Type in your drink"
+                value={drinkText}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -84,7 +84,7 @@ const MovieSaved = () => {
 
             <div className="col-12 col-lg-3">
               <button className="save-btn" type="submit">
-                Add Movie
+                Add Drink
               </button>
             </div>
             {error && (
@@ -96,7 +96,7 @@ const MovieSaved = () => {
         </>
        ) : (
         <p>
-          You need to be logged in to save movies. Please{' '}
+          You need to be logged in to save drinks. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )} 
@@ -104,4 +104,4 @@ const MovieSaved = () => {
   )
 
 }
-export default MovieSaved
+export default CocktailSaved

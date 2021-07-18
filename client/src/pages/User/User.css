@@ -43,7 +43,7 @@ button{
     color: var(--endgrad)
 }
 
-input{
+input, textarea{
     background-color: var(--endgrad);
     border: none;
     padding: 10px;

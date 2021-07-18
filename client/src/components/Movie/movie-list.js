@@ -1,6 +1,4 @@
-const randMov = () => {
-    
-    const randomMovieArray = [
+const randomMovieArray = [
 "12 Angry Men",
 "Metropolis",
 "City Lights",
@@ -1187,20 +1185,5 @@ const randMov = () => {
     "Badlapur",
     "Bajirao Mastani",
 ]
-
-    const randomNumber = Math.floor((Math.random() * randomMovieArray.length +1) -1);
-    const randomMovie = randomMovieArray[randomNumber];
-    
-    console.log(randomMovie); 
-    return (
-        <div>
-            <p>{randomMovie}</p>
-        </div>
-
-    )
-
-}
-
-// export default randMov
 
 
